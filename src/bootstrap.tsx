@@ -1,5 +1,7 @@
 // Bootstrapping for entire application
-import { h, render } from 'preact'
+import * as React from 'react'
+import { render } from 'react-dom'
 import { App } from './app/app'
+import "./index.css"
 
-render(<App name="cool working" />, document.getElementById('app'))
+render(<App/>, document.getElementById('app'))

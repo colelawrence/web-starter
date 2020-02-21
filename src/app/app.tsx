@@ -1,19 +1,14 @@
 // Bootstrapping for entire application
-import { h } from 'preact'
-import { useState } from 'preact/hooks'
-import { changeString } from '@helpers'
+import * as React from 'react'
+import MonacoEditor from 'react-monaco-editor';
+import { createEditor } from './editor';
 
-export function App({ name }) {
-  const [count, setCount] = useState(0)
-  const [message, setMessage] = useState('')
+const EditorCtx = React.createContext(createEditor())
+
+export function App() {
+  const editor = React.useContext(EditorCtx)
 
   return (
-    <div>
-      <h1>
-        {name} {count}
-      </h1>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-      <input type="text" onChange={changeString(setMessage)} value={message} />
-    </div>
+    <MonacoEditor editorWillMount={editor.setMonaco} options={editor.options} defaultValue={editor.defaultValue}/>
   )
 }

@@ -9,9 +9,9 @@
     "removeComments": true,
     "sourceMap": true,
     "jsx": "react",
-    "jsxFactory": "h",
     "paths": {
-      "@helpers": ["./helpers.ts"]
+      "@helpers": ["./helpers.ts"],
+      "@monaco": ["../node_modules/monaco-editor/esm/vs/editor/editor.api"]
     }
   },
   "include": [
